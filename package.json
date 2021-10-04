@@ -1,0 +1,32 @@
+{
+  "name": "nippleverse",
+  "version": "1.0.0",
+  "description": "NippleVerse",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoryITpro/nippleverse.git"
+  },
+  "keywords": [
+    "ERC721",
+    "NFT"
+  ],
+  "author": "coryitpro@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CoryITpro/nippleverse/issues"
+  },
+  "homepage": "https://github.com/CoryITpro/nippleverse#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.2",
+    "@truffle/hdwallet-provider": "^1.5.0",
+    "dotenv": "^10.0.0",
+    "truffle-plugin-verify": "^0.5.15"
+  }
+}

@@ -1,0 +1,11 @@
+# Node Modules
+node_modules
+
+# Package-lock Json file
+package-lock.json*
+
+# .env file
+.env
+
+# compiled contract
+src/abis
