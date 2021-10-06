@@ -1,9 +1,14 @@
 import Header from "components/Header"
+import Sidebar from "components/Sidebar"
 import "./style.scss"
 
-const Dashboard = () => (
+const Dashboard = ({ showSidebar, onSidebarClickHandler }) => (
   <div className="dashboard">
-    <Header />
+    <Sidebar
+      showSidebar={showSidebar}
+      onSidebarClickHandler={onSidebarClickHandler}
+    />
+    <Header onSidebarClickHandler={onSidebarClickHandler} />
   </div>
 )
 

@@ -11,6 +11,10 @@
 # production
 /build
 
+# directories
+/old
+/src/abis
+
 # misc
 .DS_Store
 .env.local
@@ -25,5 +29,4 @@ yarn-error.log*
 .env
 package-lock.json*
 
-src/abis
-old
+

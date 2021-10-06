@@ -2,8 +2,8 @@
 
 .header {
   width: 100%;
-  padding: 16px calc((100% - 1024px) / 2);
-  background-color: $cyan;
+  padding: 16px calc((100% - 1280px) / 2);
+  background-color: $header;
   justify-content: space-between;
 
   &-navbar {

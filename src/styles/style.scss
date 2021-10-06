@@ -29,6 +29,11 @@ body {
   flex-direction: column;
 }
 
+@font-face {
+  font-family: Pixelar;
+  src: url("../resources/fonts/Pixelar/PixelarRegular.ttf");
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

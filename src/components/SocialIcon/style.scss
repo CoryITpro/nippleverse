@@ -1,8 +1,6 @@
 @import "../../styles/variable.scss";
 
 .sociallink {
-  align-items: center;
-  justify-content: center;
   color: $black;
   border: 3px solid $black;
   border-radius: 50%;
@@ -16,9 +14,18 @@
     margin-right: 24px;
   }
 
-  & > img {
+  & > a {
+    text-decoration: none;
+    color: $black;
     width: 100%;
-    color: transparent;
-    background-color: $black;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+      width: 100%;
+      color: transparent;
+      background-color: $black;
+    }
   }
 }

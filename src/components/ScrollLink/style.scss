@@ -1,16 +1,12 @@
 @import "../../styles/variable.scss";
 
 .scrollink {
-  font-family: "Roboto", sans-serif;
+  font-family: Pixelar;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 28px;
 
   &:not(:last-child) {
     margin-right: 16px;
-  }
-
-  &:hover {
-    font-weight: bold;
   }
 }
