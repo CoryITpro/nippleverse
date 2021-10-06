@@ -1,5 +1,5 @@
 import detectEthereumProvider from "@metamask/detect-provider"
-import { ENVS } from "configurations/index"
+import { ENVS } from "configurations/ethereum"
 
 export const connectWallet = async () => {
   const provider = await detectEthereumProvider()

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import DashboardComponent from "components/Dashboard"
+import { connectWallet, getCurrentWalletConnected } from "helpers/wallet"
 
 const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false)
@@ -7,7 +8,24 @@ const Dashboard = () => {
   const [mintCount, setMintCount] = useState(1)
   const [onMinting, setOnMinting] = useState(false)
 
+  const [walletAddress, setWalletAddress] = useState("")
+  const [soldOut, setSoldOut] = useState(0)
+
   useEffect(() => {
+    const initProject = async () => {
+      if (window.ethereum) {
+        const { address, status } = await getCurrentWalletConnected()
+
+        console.log(address)
+        setWalletAddress(address)
+
+        onChangeWalletListener()
+        onConnectWalletHandler()
+      }
+    }
+
+    initProject()
+
     window.addEventListener("resize", getWindowWidth)
 
     return () => window.removeEventListener("resize", getWindowWidth)
@@ -37,6 +55,28 @@ const Dashboard = () => {
     setMintCount(value)
   }
 
+  const onChangeWalletListener = () => {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", (accounts) => {
+        if (accounts.length) {
+          setWalletAddress(accounts[0])
+        } else {
+          setWalletAddress("")
+        }
+      })
+
+      window.ethereum.on("chainChanged", () => {
+        onConnectWalletHandler()
+      })
+    }
+  }
+
+  const onConnectWalletHandler = async () => {
+    const { address, status } = await connectWallet()
+
+    setWalletAddress(address)
+  }
+
   return (
     <DashboardComponent
       showSidebar={showSidebar}
@@ -44,6 +84,7 @@ const Dashboard = () => {
       mintCount={mintCount}
       onMintCountChangeHandler={onMintCountChangeHandler}
       onMinting={onMinting}
+      walletAddress={walletAddress}
     />
   )
 }

@@ -6,7 +6,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"
 import opensea from "resources/custom/opensea.svg"
 import "./style.scss"
 
-const Header = ({ onSidebarClickHandler }) => (
+const Header = ({ onSidebarClickHandler, walletAddress }) => (
   <div className="header flex">
     <div className="header-navbar flex">
       <FontAwesomeIcon icon={faBars} onClick={onSidebarClickHandler} />
@@ -14,7 +14,11 @@ const Header = ({ onSidebarClickHandler }) => (
       <Scrollink to="featured">Featured</Scrollink>
       <Scrollink to="roadmap">Roadmap</Scrollink>
       <Scrollink to="team">Team</Scrollink>
-      <Scrollink to="connect">Connect Wallet</Scrollink>
+      <Scrollink to="connect">
+        {walletAddress === ""
+          ? "Connect Wallet"
+          : walletAddress.slice(0, 6) + " ... " + walletAddress.slice(38)}
+      </Scrollink>
     </div>
     <div className="header-socials flex">
       <SocialIcon isFA icon={faDiscord} to="https://discord.gg/nippleverse" />
