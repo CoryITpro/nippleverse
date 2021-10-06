@@ -17,7 +17,7 @@ const Header = ({ onSidebarClickHandler, walletAddress }) => (
       <Scrollink to="connect">
         {walletAddress === ""
           ? "Connect Wallet"
-          : walletAddress.slice(0, 6) + " ... " + walletAddress.slice(38)}
+          : walletAddress.slice(0, 6) + "..." + walletAddress.slice(38)}
       </Scrollink>
     </div>
     <div className="header-socials flex">

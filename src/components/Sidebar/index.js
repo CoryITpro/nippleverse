@@ -22,7 +22,7 @@ const Sidebar = ({ showSidebar, onSidebarClickHandler, walletAddress }) => (
     <Scrollink to="connect" onClick={onSidebarClickHandler}>
       {walletAddress === ""
         ? "Connect Wallet"
-        : walletAddress.slice(0, 6) + " ... " + walletAddress.slice(38)}
+        : walletAddress.slice(0, 6) + "..." + walletAddress.slice(38)}
     </Scrollink>
   </div>
 )
