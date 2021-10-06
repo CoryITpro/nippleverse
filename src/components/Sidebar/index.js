@@ -1,7 +1,12 @@
 import Scrollink from "components/ScrollLink"
 import "./style.scss"
 
-const Sidebar = ({ showSidebar, onSidebarClickHandler, walletAddress }) => (
+const Sidebar = ({
+  showSidebar,
+  onSidebarClickHandler,
+  walletAddress,
+  onConnectWalletHandler,
+}) => (
   <div
     className={`sidebar flex flex-column${showSidebar ? " show" : ""}`}
     onClick={onSidebarClickHandler}
@@ -19,7 +24,13 @@ const Sidebar = ({ showSidebar, onSidebarClickHandler, walletAddress }) => (
     <Scrollink to="team" onClick={onSidebarClickHandler}>
       Team
     </Scrollink>
-    <Scrollink to="connect" onClick={onSidebarClickHandler}>
+    <Scrollink
+      to="connect"
+      onClick={() => {
+        onSidebarClickHandler()
+        onConnectWalletHandler()
+      }}
+    >
       {walletAddress === ""
         ? "Connect Wallet"
         : walletAddress.slice(0, 6) + "..." + walletAddress.slice(38)}

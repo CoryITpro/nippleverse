@@ -74,6 +74,7 @@ const Dashboard = () => {
   const onConnectWalletHandler = async () => {
     const { address, status } = await connectWallet()
 
+    console.log(address)
     setWalletAddress(address)
   }
 
@@ -85,6 +86,7 @@ const Dashboard = () => {
       onMintCountChangeHandler={onMintCountChangeHandler}
       onMinting={onMinting}
       walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
     />
   )
 }

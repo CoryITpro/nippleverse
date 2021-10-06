@@ -14,16 +14,19 @@ const Dashboard = ({
   onMintCountChangeHandler,
   onMinting,
   walletAddress,
+  onConnectWalletHandler,
 }) => (
   <div className="dashboard">
     <Sidebar
       showSidebar={showSidebar}
       onSidebarClickHandler={onSidebarClickHandler}
       walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
     />
     <Header
       onSidebarClickHandler={onSidebarClickHandler}
       walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
     />
     <About />
     <Minter
