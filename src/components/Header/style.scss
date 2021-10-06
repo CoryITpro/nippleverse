@@ -1,0 +1,34 @@
+@import "../../styles/variable.scss";
+
+.header {
+  width: 100%;
+  padding: 16px calc((100% - 1024px) / 2);
+  background-color: $cyan;
+  justify-content: space-between;
+
+  &-navbar {
+    align-items: center;
+    padding-left: 24px;
+
+    & > a {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    & > svg {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 24px;
+      display: none;
+
+      @media (max-width: 768px) {
+        display: inline;
+      }
+    }
+  }
+
+  &-socials {
+    padding-right: 24px;
+  }
+}
