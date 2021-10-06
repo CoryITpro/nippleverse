@@ -17,7 +17,7 @@ const Header = ({ onSidebarClickHandler }) => (
       <Scrollink to="connect">Connect Wallet</Scrollink>
     </div>
     <div className="header-socials flex">
-      <SocialIcon isFA icon={faDiscord} to="https://discord.gg/abced" />
+      <SocialIcon isFA icon={faDiscord} to="https://discord.gg/nippleverse" />
       <SocialIcon isFA icon={faTwitter} to="https://twitter.com/nippleverse" />
       <SocialIcon
         isFA={false}
