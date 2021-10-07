@@ -2,11 +2,19 @@
 
 .minter {
   width: 100%;
-  padding: 16px calc((100% - 1280px) / 2);
+  padding: 48px calc((100% - 1280px) / 2);
   background-image: url("../../resources/images/minter_bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+
+  @media (max-width: 768px) {
+    padding: 32px calc((100% - 1280px) / 2);
+  }
+
+  @media (max-width: 425px) {
+    padding: 16px calc((100% - 1280px) / 2);
+  }
 
   &-wrapper {
     padding: 0 24px;

@@ -30,6 +30,15 @@
       margin-bottom: 24px;
     }
   }
+
+  & > button {
+    color: $white;
+    font-size: 32px;
+
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
 }
 
 .show {

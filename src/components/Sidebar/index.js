@@ -1,4 +1,5 @@
 import Scrollink from "components/ScrollLink"
+import ConnectButton from "components/ConnectButton"
 import "./style.scss"
 
 const Sidebar = ({
@@ -24,17 +25,11 @@ const Sidebar = ({
     <Scrollink to="team" onClick={onSidebarClickHandler}>
       Team
     </Scrollink>
-    <Scrollink
-      to="connect"
-      onClick={() => {
-        onSidebarClickHandler()
-        onConnectWalletHandler()
-      }}
-    >
+    <ConnectButton onClick={onConnectWalletHandler}>
       {walletAddress === ""
         ? "Connect Wallet"
         : walletAddress.slice(0, 6) + "..." + walletAddress.slice(38)}
-    </Scrollink>
+    </ConnectButton>
   </div>
 )
 

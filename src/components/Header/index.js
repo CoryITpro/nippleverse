@@ -1,5 +1,6 @@
 import Scrollink from "components/ScrollLink"
 import SocialIcon from "components/SocialIcon"
+import ConnectButton from "components/ConnectButton"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
@@ -18,11 +19,11 @@ const Header = ({
       <Scrollink to="featured">Featured</Scrollink>
       <Scrollink to="roadmap">Roadmap</Scrollink>
       <Scrollink to="team">Team</Scrollink>
-      <Scrollink to="connect" onClick={onConnectWalletHandler}>
+      <ConnectButton onClick={onConnectWalletHandler}>
         {walletAddress === ""
           ? "Connect Wallet"
           : walletAddress.slice(0, 6) + "..." + walletAddress.slice(38)}
-      </Scrollink>
+      </ConnectButton>
     </div>
     <div className="header-socials flex">
       <SocialIcon isFA icon={faDiscord} to="https://discord.gg/nippleverse" />
