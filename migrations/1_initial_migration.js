@@ -1,7 +1,7 @@
 require("dotenv").config()
-const NippleVerse = artifacts.require("NippleVerse");
+const Nippleverse = artifacts.require("Nippleverse")
 const baseURI = process.env.BASE_URI
 
 module.exports = function (deployer) {
-  deployer.deploy(NippleVerse, baseURI);
-};
+  deployer.deploy(Nippleverse, baseURI)
+}

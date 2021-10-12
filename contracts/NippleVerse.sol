@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./ERC721Pausable.sol";
 
-contract NippleVerse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable {
+contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable {
 
     using SafeMath for uint256;
     using Counters for Counters.Counter;
@@ -19,9 +19,9 @@ contract NippleVerse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     bool public SALE_OPEN = false;
 
-    uint256 private constant PRICE_PER = 3 * 10**16; // 0.03ETH Per NippleVerse
+    uint256 private constant PRICE_PER = 69 * 10**15; // 0.069ETH Per Nipple
 
-    uint256 private constant MAX_ELEMENTS = 4444; // 4444 NippleVerse for Sale.
+    uint256 private constant MAX_ELEMENTS = 4444; // 4444 Nipples for Entire Collection.
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
 
     mapping(uint256 => bool) private _isOccupiedId;
@@ -29,7 +29,7 @@ contract NippleVerse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     string private baseTokenURI;
 
-    event NippleVerseCreated(address to, uint256 indexed id);
+    event NippleverseCreated(address to, uint256 indexed id);
 
     modifier saleIsOpen {
         require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
@@ -41,7 +41,7 @@ contract NippleVerse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         _;
     }
 
-    constructor (string memory baseURI) ERC721("NippleVerse", "NPV") {
+    constructor (string memory baseURI) ERC721("Nippleverse", "NIP") {
         setBaseURI(baseURI);
     }
 
@@ -71,7 +71,7 @@ contract NippleVerse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         _isOccupiedId[_id] = true;
         _occupiedList.push(_id);
 
-        emit NippleVerseCreated(_to, _id);
+        emit NippleverseCreated(_to, _id);
     }
 
     function setBaseURI(string memory baseURI) public onlyOwner {
