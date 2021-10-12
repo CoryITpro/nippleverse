@@ -78,7 +78,7 @@ const Faq = () => {
             <div>
               <p>
                 In order to get your transaction validated, you need to make a
-                special kind of payment called Gas fees. This transaction fee
+                unique kind of payment called Gas fees. This transaction fee
                 compensates for the computer energy required to get your
                 transaction validated.
               </p>
@@ -105,7 +105,7 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                The moment we do the payment we will post an On-Chain proof
+                The moment we make the payment we will post an On-Chain proof
                 regarding that payment on our social media platforms reassuring
                 everyone that the transaction got validated and received from
                 the Charity.
