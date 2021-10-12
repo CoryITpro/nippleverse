@@ -18,33 +18,29 @@ const Team = () => {
         <div className="team-members">
           <div className="team-member">
             <img src={teamMember1} alt="Member 1" />
-            <p>Name</p>
+            <p>Humble</p>
           </div>
           <div className="team-member">
             <img src={teamMember2} alt="Member 2" />
-            <p>Name</p>
+            <p>Msid</p>
           </div>
           <div className="team-member">
             <img src={teamMember3} alt="Member 3" />
-            <p>Name</p>
+            <p>CrissCross</p>
           </div>
           <div className="team-member">
             <img src={teamMember4} alt="Member 4" />
-            <p>Name</p>
+            <p>Neil</p>
           </div>
           <div className="team-member">
             <img src={teamMember5} alt="Member 5" />
-            <p>Name</p>
+            <p>The Nerd</p>
           </div>
           <div className="team-member">
             <img src={teamMember6} alt="Member 6" />
-            <p>Name</p>
+            <p>Nickosi</p>
           </div>
         </div>
-
-        {/* <button className="show-all" type="button">
-                    Show All
-                </button> */}
       </div>
     </Wrapper>
   )

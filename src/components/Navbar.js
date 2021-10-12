@@ -2,10 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { FaDiscord, FaTwitter } from "react-icons/fa"
 import { HamburgerIcon, MediumIcon } from "../assets"
-import { links } from "../utils/constants"
-import { useAppContext } from "../context/app_context"
+import { links } from "utils/constants"
+import { useAppContext } from "context/app_context"
 
-const Nav = () => {
+const Nav = ({ walletAddress, onConnectWalletHandler }) => {
   const { toggleSidebar, isSidebarOpen } = useAppContext()
 
   return (
@@ -25,7 +25,11 @@ const Nav = () => {
           })}
           <li className="last-link-item">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a href="#">Connect Wallet</a>
+            <a href="#" onClick={onConnectWalletHandler}>
+              {walletAddress !== ""
+                ? walletAddress.slice(0, 6) + " ... " + walletAddress.slice(38)
+                : "Connect Wallet"}
+            </a>
           </li>
         </ul>
         <button className="mobile-nav" type="button" onClick={toggleSidebar}>

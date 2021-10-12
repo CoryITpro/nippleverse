@@ -1,6 +1,6 @@
 import { ethers } from "ethers"
-import contractABI from "abis/CryptoAthletes.json"
-import { ENVS } from "configurations/index"
+import contractABI from "abis/Nippleverse.json"
+import { ENVS } from "configurations/ethereum"
 
 // Contract can be used to write Contract
 export const getContractWithSigner = () => {

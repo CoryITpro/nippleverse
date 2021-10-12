@@ -1,60 +1,52 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
-import { BannerShape, mintBg, mintBgSmall } from "../assets"
-import { nftPrice } from "../utils/constants"
+import { BannerShape, mintBg, mintBgSmall } from "assets"
+import { FaSpinner } from "react-icons/fa"
 
-const Banner = () => {
-  const [mintTotal, setMintTotal] = useState(null)
-  const [mintInputValue, setMintInputValue] = useState("5")
-
-  const handleInputChange = (input) => {
-    if (!Number(input.value) && input.value !== "") return
-    setMintInputValue(input.value)
-  }
-
-  useEffect(() => {
-    setMintTotal(Number(Number(mintInputValue) * nftPrice).toFixed(3))
-  }, [mintInputValue])
-
-  return (
-    <Wrapper>
-      <div className="container">
-        <div className="mint-banner">
-          <div className="background">
-            {/* <MintBg /> */}
-            <img src={mintBg} alt="Mint Section Background" />
-          </div>
-          <div className="background-small">
-            {/* <MintBgSmall /> */}
-            <img
-              src={mintBgSmall}
-              alt="Mint Section Background for Small Devices"
-            />
-          </div>
-
-          <div className="mint-banner-text">
-            <h2>Mint</h2>
-            <p>Enter the amount of nipples you would like to buy ( 20 max ):</p>
-            <form>
-              <input
-                type="text"
-                id="mintInput"
-                maxLength="2"
-                value={mintInputValue}
-                onChange={(e) => handleInputChange(e.target)}
-              />
-              <button type="submit">MINT</button>
-              <p className="total-text">
-                Total: <span id="totalValue">{mintTotal} Eth</span>
-              </p>
-            </form>
-          </div>
-          <BannerShape className="banner-shape" />
+const Banner = ({
+  mintLoading,
+  mintTotal,
+  mintInputValue,
+  onMintHandler,
+  handleInputChange,
+}) => (
+  <Wrapper>
+    <div className="container">
+      <div className="mint-banner">
+        <div className="background">
+          <img src={mintBg} alt="Mint Section Background" />
         </div>
+        <div className="background-small">
+          <img
+            src={mintBgSmall}
+            alt="Mint Section Background for Small Devices"
+          />
+        </div>
+
+        <div className="mint-banner-text">
+          <h2>Mint</h2>
+          <p>Enter the amount of nipples you would like to buy ( 20 max ):</p>
+          <div>
+            <input
+              type="text"
+              id="mintInput"
+              maxLength="2"
+              value={mintInputValue}
+              onChange={(e) => handleInputChange(e.target)}
+            />
+            <button onClick={() => !mintLoading && onMintHandler()}>
+              {mintLoading && <FaSpinner />}MINT
+            </button>
+            <p className="total-text">
+              Total: <span id="totalValue">{mintTotal} Eth</span>
+            </p>
+          </div>
+        </div>
+        <BannerShape className="banner-shape" />
       </div>
-    </Wrapper>
-  )
-}
+    </div>
+  </Wrapper>
+)
 
 const Wrapper = styled.article`
   padding: 3rem 0;
@@ -89,7 +81,7 @@ const Wrapper = styled.article`
         margin-bottom: 2rem;
       }
 
-      form {
+      div {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -112,6 +104,9 @@ const Wrapper = styled.article`
         margin-right: 0.5rem;
       }
       button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 1.65rem;
         letter-spacing: 2px;
         width: 180px;
@@ -126,6 +121,12 @@ const Wrapper = styled.article`
         box-shadow: 0px 48.2439px 89.7561px rgba(35, 35, 35, 0.42);
         border-radius: 90px;
         margin-right: 1rem;
+        transition: 0.3s;
+
+        & > svg {
+          margin-right: 16px;
+          animation: spin 1s ease-in-out infinite;
+        }
       }
 
       .total-text {
@@ -179,7 +180,7 @@ const Wrapper = styled.article`
     padding: 0;
     .mint-banner {
       max-width: 450px;
-      padding: 3rem 2rem;
+      padding: 2rem 1rem;
       .mint-banner-text {
         text-align: center;
         width: 100%;
@@ -193,6 +194,15 @@ const Wrapper = styled.article`
         max-width: 230px;
         margin: 0 auto;
       }
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 `

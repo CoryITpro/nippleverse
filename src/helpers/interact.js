@@ -9,7 +9,7 @@ export const mintNFT = async (
 ) => {
   const contract = getContractWithSigner()
 
-  contract.on("CreateCryptoAthletes(address, uint256)", (to, newId) => {
+  contract.on("NippleverseCreated(address, uint256)", (to, newId) => {
     const address = ethers.utils.getAddress(to)
     const newMintId = ethers.BigNumber.from(newId).toNumber()
 
@@ -19,7 +19,7 @@ export const mintNFT = async (
   try {
     let txhash = await contract.mint(walletAddress, randomIds, {
       value: ethers.BigNumber.from(1e9).mul(
-        ethers.BigNumber.from(1e9).mul(5).div(100).mul(randomIds.length)
+        ethers.BigNumber.from(1e8).mul(69).div(100).mul(randomIds.length)
       ),
       from: walletAddress,
     })
