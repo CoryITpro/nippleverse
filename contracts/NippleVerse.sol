@@ -46,6 +46,9 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
     event NippleverseCreated(address to, uint256 indexed id);
 
     modifier saleIsOpen {
+        if (_msgSender() != owner()) {
+            require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
+        }
         require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
         require(_totalSupply() <= MAX_ELEMENTS, "SALES: Sale end");
 
