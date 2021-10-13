@@ -14,12 +14,23 @@ import { useAppContext } from "../context/app_context"
 import { nftPrice } from "utils/constants"
 import { mintNFT } from "helpers/interact"
 import { generateInitIds, getDiffArray } from "helpers/index"
-import { getOccupiedIds } from "helpers/contract"
+import {
+  getOccupiedIds,
+  getPrice,
+  getMaxSupply,
+  getCurrentMaxSupply,
+  getCurrentMaxMint,
+} from "helpers/contract"
 
 const HomePage = ({ walletAddress }) => {
   const { isLoading } = useAppContext()
 
   const [mintLoading, setMintLoading] = useState(false)
+
+  const [maxMint, setMaxMint] = useState(0)
+  const [maxSupply, setMaxSupply] = useState(0)
+  const [maxCurrentSupply, setMaxCurrentSupply] = useState(0)
+
   const [mintInputValue, setMintInputValue] = useState("20")
   const [mintTotal, setMintTotal] = useState(null)
   const [newMint, setNewMint] = useState([])
@@ -29,15 +40,35 @@ const HomePage = ({ walletAddress }) => {
 
     if (Number(input.value) < 0) {
       setMintInputValue("1")
-    } else if (Number(input.value) > 20) {
-      setMintInputValue("20")
+    } else if (Number(input.value) > maxMint) {
+      setMintInputValue(maxMint.toString())
     } else {
       setMintInputValue(input.value)
     }
   }
 
   useEffect(() => {
-    setMintTotal(Number(Number(mintInputValue) * nftPrice).toFixed(3))
+    const initApp = async () => {
+      let mintMax = await getCurrentMaxMint()
+      setMaxMint(mintMax)
+
+      let supplyMax = await getMaxSupply()
+      setMaxSupply(supplyMax)
+
+      let currentSupplyMax = await getCurrentMaxSupply()
+      setMaxCurrentSupply(currentSupplyMax)
+    }
+
+    initApp()
+  }, [])
+
+  useEffect(() => {
+    const calculatePrice = async () => {
+      let price = await getPrice(Number(mintInputValue))
+      setMintTotal(price.toFixed(3))
+    }
+
+    calculatePrice()
   }, [mintInputValue])
 
   const getRandomIds = async () => {

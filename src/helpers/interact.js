@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import { getContractWithSigner } from "./contract"
+import { getContractWithSigner, getOwnerAddress, getPrice } from "./contract"
 
 export const mintNFT = async (
   walletAddress,
@@ -8,6 +8,10 @@ export const mintNFT = async (
   randomIds
 ) => {
   const contract = getContractWithSigner()
+
+  let ownerAddress = await getOwnerAddress()
+  let price = await getPrice(randomIds.length)
+  console.log(price)
 
   contract.on("NippleverseCreated(address, uint256)", (to, newId) => {
     const address = ethers.utils.getAddress(to)
@@ -18,9 +22,7 @@ export const mintNFT = async (
 
   try {
     let txhash = await contract.mint(walletAddress, randomIds, {
-      value: ethers.BigNumber.from(1e9).mul(
-        ethers.BigNumber.from(1e8).mul(69).div(100).mul(randomIds.length)
-      ),
+      value: walletAddress === ownerAddress ? 0 : ethers.BigNumber.from(price),
       from: walletAddress,
     })
 

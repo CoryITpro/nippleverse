@@ -59,6 +59,19 @@ export const getCurrentTotalSupply = async () => {
   }
 }
 
+// Get Max Supply from the Contract
+export const getMaxSupply = async () => {
+  const contract = getContractWithoutSigner()
+
+  try {
+    let maxSupply = await contract.maxSupply()
+
+    return ethers.BigNumber.from(maxSupply).toNumber()
+  } catch (err) {
+    return 0
+  }
+}
+
 // Get Max Element Counts from the Contract
 export const getCurrentMaxSupply = async () => {
   const contract = getContractWithoutSigner()
@@ -92,6 +105,30 @@ export const getOccupiedIds = async () => {
     let occupiedList = await contract.occupiedList()
 
     return occupiedList
+  } catch (err) {
+    return 0
+  }
+}
+
+export const getOwnerAddress = async () => {
+  const contract = getContractWithoutSigner()
+
+  try {
+    let ownerAddress = await contract.owner()
+
+    return ownerAddress
+  } catch (err) {
+    return ""
+  }
+}
+
+export const getPrice = async (count) => {
+  const contract = getContractWithoutSigner()
+
+  try {
+    let price = await contract.price(count)
+
+    return ethers.BigNumber.from(price).toNumber()
   } catch (err) {
     return 0
   }
