@@ -19,13 +19,24 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     bool public SALE_OPEN = false;
 
-    uint256 private constant PRICE_PER = 69 * 10**15; // 0.069ETH Per Nipple
+    uint256 private constant PRICE = 69 * 10**15; // 0.069ETH Per Nipple
+    uint256 private constant PRICE_PRESALE = 5 * 10**16; // 0.05ETH Per Nipple
 
     uint256 private constant MAX_ELEMENTS = 4444; // 4444 Nipples for Entire Collection.
+    uint256 private constant MAX_ELEMENTS_PRESALE = 444; // 444 Nipples for Pre Sale.
+
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
+    uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5
+
+    uint256 private _price;
+    uint256 private _maxElements;
+    uint256 private _maxMint;
 
     mapping(uint256 => bool) private _isOccupiedId;
     uint256[] private _occupiedList;
+
+    mapping(address => bool) public _whitelist;
+    bool private _isPresale;
 
     string private baseTokenURI;
 
@@ -43,14 +54,22 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     constructor (string memory baseURI) ERC721("Nippleverse", "NIP") {
         setBaseURI(baseURI);
+
+        _price = PRICE;
+        _maxElements = MAX_ELEMENTS;
+        _maxMint = MAX_MINT;
     }
 
     function mint(address payable _to, uint256[] memory _ids) public payable saleIsOpen {
         uint256 total = _totalSupply();
 
-        require(total + _ids.length <= MAX_ELEMENTS, "MINT: Current count exceeds maximum element count.");
-        require(total <= MAX_ELEMENTS, "MINT: Please go to the Opensea to buy NippleVerse.");
-        require(_ids.length <= MAX_MINT, "MINT: Current count exceeds maximum mint count.");
+        if (_isPresale == true) {
+            require(_whitelist[_to] == true, "PRESALE: Only registered customers can mint!");
+        }
+        
+        require(total + _ids.length <= _maxElements, "MINT: Current count exceeds maximum element count.");
+        require(total <= _maxElements, "MINT: Please go to the Opensea to buy NippleVerse.");
+        require(_ids.length <= _maxMint, "MINT: Current count exceeds maximum mint count.");
 
         if (_to != owner()) {
             require(msg.value >= price(_ids.length), "MINT: Current value is below the sales price of NippleVerse");
@@ -74,6 +93,34 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         emit NippleverseCreated(_to, _id);
     }
 
+    function startPreSale() public onlyOwner {
+        _isPresale = true;
+
+        _price = PRICE_PRESALE;
+        _maxElements = MAX_ELEMENTS_PRESALE;
+        _maxMint = MAX_MINT_PRESALE;
+    }
+
+    function startPublicSale() public onlyOwner {
+        _isPresale = false;
+
+        _price = PRICE;
+        _maxElements = MAX_ELEMENTS;
+        _maxMint = MAX_MINT;
+    }
+
+    function flipSaleState() public onlyOwner {
+        SALE_OPEN = !SALE_OPEN;
+    }
+
+    function addToWhitelist(address attender) public onlyOwner {
+        _whitelist[attender] = true;
+    }
+
+    function removeFromWhitelist(address attender) public onlyOwner {
+        _whitelist[attender] = false;
+    }
+
     function setBaseURI(string memory baseURI) public onlyOwner {
         baseTokenURI = baseURI;
     }
@@ -82,8 +129,8 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         return baseTokenURI;
     }
 
-    function price(uint256 _count) public pure returns (uint256) {
-        return PRICE_PER.mul(_count);
+    function price(uint256 _count) public view returns (uint256) {
+        return _price.mul(_count);
     }
 
     function _totalSupply() internal view returns (uint) {
@@ -91,7 +138,7 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
     }
 
     function occupiedList() public view returns (uint256[] memory) {
-      return _occupiedList;
+        return _occupiedList;
     }
 
     function maxMint() public pure returns (uint256) {
@@ -128,10 +175,6 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
     function _widthdraw(address _address, uint256 _amount) private {
         (bool success, ) = _address.call{value: _amount}("");
         require(success, "WITHDRAW: Transfer failed.");
-    }
-
-    function flipSaleState() public onlyOwner {
-      SALE_OPEN = !SALE_OPEN;
     }
 
     function _beforeTokenTransfer(
