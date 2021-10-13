@@ -21,12 +21,15 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     uint256 private constant PRICE = 69 * 10**15; // 0.069ETH Per Nipple
     uint256 private constant PRICE_PRESALE = 5 * 10**16; // 0.05ETH Per Nipple
+    uint256 private constant PRICE_PREMINT = 0; // Free Per Nipple
 
     uint256 private constant MAX_ELEMENTS = 4444; // 4444 Nipples for Entire Collection.
     uint256 private constant MAX_ELEMENTS_PRESALE = 444; // 444 Nipples for Pre Sale.
+    uint256 private constant MAX_ELEMENTS_PREMINT = 30; // 30 Nipples for GiveAway.
 
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
     uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5
+    uint256 private constant MAX_MINT_PREMINT = 28; // Upper Limit per Mint is 28
 
     uint256 private _price;
     uint256 private _maxElements;
@@ -55,9 +58,9 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
     constructor (string memory baseURI) ERC721("Nippleverse", "NIP") {
         setBaseURI(baseURI);
 
-        _price = PRICE;
-        _maxElements = MAX_ELEMENTS;
-        _maxMint = MAX_MINT;
+        _price = PRICE_PREMINT;
+        _maxElements = MAX_ELEMENTS_PREMINT;
+        _maxMint = MAX_MINT_PREMINT;
     }
 
     function mint(address payable _to, uint256[] memory _ids) public payable saleIsOpen {
@@ -66,7 +69,7 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         if (_isPresale == true) {
             require(_whitelist[_to] == true, "PRESALE: Only registered customers can mint!");
         }
-        
+
         require(total + _ids.length <= _maxElements, "MINT: Current count exceeds maximum element count.");
         require(total <= _maxElements, "MINT: Please go to the Opensea to buy NippleVerse.");
         require(_ids.length <= _maxMint, "MINT: Current count exceeds maximum mint count.");
@@ -97,7 +100,7 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         _isPresale = true;
 
         _price = PRICE_PRESALE;
-        _maxElements = MAX_ELEMENTS_PRESALE;
+        _maxElements = MAX_ELEMENTS_PRESALE + MAX_ELEMENTS_PREMINT;
         _maxMint = MAX_MINT_PRESALE;
     }
 
