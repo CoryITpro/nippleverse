@@ -144,11 +144,15 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         return _occupiedList;
     }
 
-    function maxMint() public pure returns (uint256) {
-        return MAX_MINT;
+    function maxMint() public view returns (uint256) {
+        return _maxMint;
     }
 
-    function maxSales() public pure returns (uint256) {
+    function maxSales() public view returns (uint256) {
+        return _maxElements;
+    }
+
+    function maxSupply() public pure returns (uint256) {
         return MAX_ELEMENTS;
     }
 
