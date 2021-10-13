@@ -49,7 +49,6 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
         if (_msgSender() != owner()) {
             require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
         }
-        require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
         require(_totalSupply() <= MAX_ELEMENTS, "SALES: Sale end");
 
         if (_msgSender() != owner()) {
@@ -102,6 +101,8 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
     function startPreSale() public onlyOwner {
         _isPresale = true;
 
+        SALE_OPEN = true;
+
         _price = PRICE_PRESALE;
         _maxElements = MAX_ELEMENTS_PRESALE + MAX_ELEMENTS_PREMINT;
         _maxMint = MAX_MINT_PRESALE;
@@ -109,6 +110,8 @@ contract Nippleverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausabl
 
     function startPublicSale() public onlyOwner {
         _isPresale = false;
+
+        SALE_OPEN = true;
 
         _price = PRICE;
         _maxElements = MAX_ELEMENTS;

@@ -31,7 +31,7 @@ const HomePage = ({ walletAddress }) => {
   const [maxSupply, setMaxSupply] = useState(0)
   const [maxCurrentSupply, setMaxCurrentSupply] = useState(0)
 
-  const [mintInputValue, setMintInputValue] = useState("20")
+  const [mintInputValue, setMintInputValue] = useState("0")
   const [mintTotal, setMintTotal] = useState(null)
   const [newMint, setNewMint] = useState([])
 
@@ -51,6 +51,7 @@ const HomePage = ({ walletAddress }) => {
     const initApp = async () => {
       let mintMax = await getCurrentMaxMint()
       setMaxMint(mintMax)
+      setMintInputValue(mintMax.toString())
 
       let supplyMax = await getMaxSupply()
       setMaxSupply(supplyMax)
@@ -108,6 +109,7 @@ const HomePage = ({ walletAddress }) => {
       {isLoading && <Loading />}
       <Intro />
       <Banner
+        maxMint={maxMint}
         mintLoading={mintLoading}
         mintTotal={mintTotal}
         mintInputValue={mintInputValue}

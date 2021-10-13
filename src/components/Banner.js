@@ -4,6 +4,7 @@ import { BannerShape, mintBg, mintBgSmall } from "assets"
 import { FaSpinner } from "react-icons/fa"
 
 const Banner = ({
+  maxMint,
   mintLoading,
   mintTotal,
   mintInputValue,
@@ -25,7 +26,7 @@ const Banner = ({
 
         <div className="mint-banner-text">
           <h2>Mint</h2>
-          <p>Enter the amount of nipples you would like to buy ( 20 max ):</p>
+          <p>{`Enter the amount of nipples you would like to buy ( ${maxMint} max ):`}</p>
           <div>
             <input
               type="text"
