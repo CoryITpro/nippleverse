@@ -66,7 +66,8 @@ const HomePage = ({ walletAddress }) => {
   useEffect(() => {
     const calculatePrice = async () => {
       let price = await getPrice(Number(mintInputValue))
-      setMintTotal(price.toFixed(3))
+
+      setMintTotal((price / 1000).toFixed(3))
     }
 
     calculatePrice()
