@@ -127,6 +127,7 @@ const Faq = () => {
                 >
                   Discord Channel
                 </a>
+                {". "}
                 From there, you will have all the essentials to navigate the
                 Nippleverse.
               </p>
