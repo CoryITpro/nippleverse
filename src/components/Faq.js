@@ -57,9 +57,8 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                Long story short, NFT is a unique digital asset stored on the
-                Ethereum Blockchain. Its initials stand for ‘Non-Fungible
-                Token’.
+                NFT is a unique digital asset stored on the Ethereum Blockchain.
+                Its initials stand for ‘Non-Fungible Token’.
               </p>
             </div>
           </li>
@@ -68,7 +67,11 @@ const Faq = () => {
               How much would it cost me to purchase a Nipple? <GoChevronRight />
             </p>
             <div>
-              <p>{nftPrice} Eth plus any additional Gas Fees.</p>
+              {/* <p>{nftPrice} Eth plus any additional Gas Fees.</p> */}
+              <p>
+                The cost will be 0.05 ETH for Presale and 0.069 ETH for Public
+                sale plus any additional Gas Fees
+              </p>
             </div>
           </li>
           <li>
@@ -77,10 +80,9 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                In order to get your transaction validated, you need to make a
-                unique kind of payment called Gas fees. This transaction fee
-                compensates for the computer energy required to get your
-                transaction validated.
+                To get your transaction validated, you need to make a unique
+                kind of payment called Gas fees. This transaction fee covers the
+                computer energy required to get your transaction validated.
               </p>
             </div>
           </li>
@@ -91,11 +93,10 @@ const Faq = () => {
             <div>
               <p>
                 The process its quite simple. Install the crypto wallet called
-                Metamask and create your digital portfolio. It should be noted
-                that Metamask can be used to store Ethereum and Assets such as
-                NFT’s. As soon as you are done with this process all you have to
-                do is connect your wallet to our website and complete the
-                purchase.
+                Metamask and create your digital portfolio. Metamask can be used
+                to store Ethereum and Assets such as NFT’s. As soon as you have
+                set up the Metamask crypto wallet, connect your wallet to our
+                website and complete the purchase.
               </p>
             </div>
           </li>
@@ -105,10 +106,10 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                The moment we make the payment we will post an On-Chain proof
+                After we process the payment we will post an On-Chain proof
                 regarding that payment on our social media platforms reassuring
-                everyone that the transaction got validated and received from
-                the Charity.
+                everyone that the transaction was validated and received by the
+                charity.
               </p>
             </div>
           </li>
@@ -118,14 +119,13 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                That’s the easiest part. All you have to do is join our Discord
-                Channel:{" "}
+                All you have to do is join our{" "}
                 <a
                   rel="noreferrer"
                   target="_blank"
                   href="https://discord.gg/nippleverse"
                 >
-                  https://discord.gg/nippleverse
+                  Discord Channel
                 </a>
                 . From there, you will have all the essentials to navigate the
                 Nippleverse.

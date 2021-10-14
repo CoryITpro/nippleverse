@@ -11,6 +11,7 @@ import {
   topLeftFeaturedBg,
   topRightFeaturedBg,
   bottomLeftFeaturedBg,
+  ButtonBg,
   allNftsH,
   allNftsV,
   nftGif,
@@ -75,11 +76,18 @@ const Featured = () => {
           </div>
           <div className="text-container">
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book
+              At first hiding nipples seemed normal, something we've been taught
+              since a child. After time, their power started to prevail and the
+              people began questioning the reason for their censorship. A
+              revolution arose. The centralized power, that strives to be in
+              control of our fate, met this with force. They were not going to
+              allow us to be free. An all-out war broke loose, Nipples were
+              being hunted down and censored. But hope wasn’t lost yet...
             </p>
+            <a href="https://www.medium.com" target="_blank">
+              <img src={ButtonBg} alt="read more" />
+              <span>Read More</span>
+            </a>
           </div>
         </div>
 
@@ -207,7 +215,35 @@ const Wrapper = styled.article`
     }
 
     .text-container {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
       width: 50%;
+
+      & > a {
+        margin: 16px 0;
+        position: relative;
+        display: flex;
+        width: 240px;
+        height: 88px;
+        text-decoration: none;
+        color: white;
+
+        & > img {
+          width: 100%;
+        }
+
+        & > span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          top: 0;
+          left: 0;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
 
     .img-container {

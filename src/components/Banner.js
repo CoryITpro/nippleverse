@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { BannerShape, mintBg, mintBgSmall } from "assets"
 import { FaSpinner } from "react-icons/fa"
+import { calculateTimeLeft } from "helpers/timer"
 
 const Banner = ({
   maxMint,
@@ -10,44 +11,91 @@ const Banner = ({
   mintInputValue,
   onMintHandler,
   handleInputChange,
-}) => (
-  <Wrapper>
-    <div className="container">
-      <div className="mint-banner">
-        <div className="background">
-          <img src={mintBg} alt="Mint Section Background" />
-        </div>
-        <div className="background-small">
-          <img
-            src={mintBgSmall}
-            alt="Mint Section Background for Small Devices"
-          />
-        </div>
+}) => {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
 
-        <div className="mint-banner-text">
-          <h2>Mint</h2>
-          <p>{`Enter the amount of nipples you would like to buy ( ${maxMint} max ):`}</p>
-          <div>
-            <input
-              type="text"
-              id="mintInput"
-              maxLength="2"
-              value={mintInputValue}
-              onChange={(e) => handleInputChange(e.target)}
-            />
-            <button onClick={() => !mintLoading && onMintHandler()}>
-              {mintLoading && <FaSpinner />}MINT
-            </button>
-            <p className="total-text">
-              Total: <span id="totalValue">{mintTotal} Eth</span>
-            </p>
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [timeLeft])
+
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="mint-banner">
+          <div className="background">
+            <img src={mintBg} alt="Mint Section Background" />
           </div>
+          <div className="background-small">
+            <img
+              src={mintBgSmall}
+              alt="Mint Section Background for Small Devices"
+            />
+          </div>
+
+          <div className="mint-banner-text">
+            {Object.keys(timeLeft).length === 0 ? (
+              <>
+                <h2>Mint</h2>
+                <p>{`Enter the amount of nipples you would like to buy ( ${maxMint} max ):`}</p>
+                <div>
+                  <input
+                    type="text"
+                    id="mintInput"
+                    maxLength="2"
+                    value={mintInputValue}
+                    onChange={(e) => handleInputChange(e.target)}
+                  />
+                  <button onClick={() => !mintLoading && onMintHandler()}>
+                    {mintLoading && <FaSpinner />}MINT
+                  </button>
+                  <p className="total-text">
+                    Total: <span id="totalValue">{mintTotal} Eth</span>
+                  </p>
+                </div>
+              </>
+            ) : (
+              <div className="mint-banner-clock flex">
+                <div className="mint-banner-timer flex flex-column">
+                  <div className="flex">
+                    <span>{timeLeft.days[0]}</span>
+                    <span>{timeLeft.days[1]}</span>
+                  </div>
+                  <span>Days</span>
+                </div>
+                <div className="mint-banner-timer flex flex-column">
+                  <div className="flex">
+                    <span>{timeLeft.hours[0]}</span>
+                    <span>{timeLeft.hours[1]}</span>
+                  </div>
+                  <span>Hours</span>
+                </div>
+                <div className="mint-banner-timer flex flex-column">
+                  <div className="flex">
+                    <span>{timeLeft.minutes[0]}</span>
+                    <span>{timeLeft.minutes[1]}</span>
+                  </div>
+                  <span>Minutes</span>
+                </div>
+                <div className="mint-banner-timer flex flex-column">
+                  <div className="flex">
+                    <span>{timeLeft.seconds[0]}</span>
+                    <span>{timeLeft.seconds[1]}</span>
+                  </div>
+                  <span>Seconds</span>
+                </div>
+              </div>
+            )}
+          </div>
+          <BannerShape className="banner-shape" />
         </div>
-        <BannerShape className="banner-shape" />
       </div>
-    </div>
-  </Wrapper>
-)
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.article`
   padding: 3rem 0;
@@ -74,6 +122,7 @@ const Wrapper = styled.article`
     .mint-banner-text {
       width: 60%;
       align-self: center;
+
       h2 {
         line-height: 1;
         margin-bottom: 1rem;
@@ -104,6 +153,7 @@ const Wrapper = styled.article`
         border-radius: 90px;
         margin-right: 0.5rem;
       }
+
       button {
         display: flex;
         align-items: center;
@@ -137,6 +187,55 @@ const Wrapper = styled.article`
         word-break: break-all;
         span {
           color: #df1571;
+        }
+      }
+
+      .mint-banner-clock {
+        width: 100%;
+        justify-content: space-around;
+
+        .mint-banner-timer {
+          margin-top: 32px;
+
+          & > div {
+            width: 100%;
+
+            & > span {
+              background-color: white;
+              text-align: center;
+              width: 56px;
+              padding: 16px 0;
+              font-size: 48px;
+              font-family: pixel;
+              border-radius: 8px;
+
+              @media (max-width: 1024px) {
+                width: 48px;
+                font-size: 32px;
+              }
+
+              @media (max-width: 768px) {
+                width: 36px;
+                font-size: 28px;
+              }
+
+              @media (max-width: 425px) {
+                width: 32px;
+                font-size: 24px;
+                padding: 12px 0;
+              }
+
+              &:not(:last-child) {
+                margin-right: 4px;
+              }
+            }
+          }
+
+          & > span {
+            text-align: center;
+            font-size: 14px;
+            color: red;
+          }
         }
       }
     }

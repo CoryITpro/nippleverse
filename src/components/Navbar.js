@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { FaDiscord, FaTwitter } from "react-icons/fa"
-import { HamburgerIcon, MediumIcon } from "../assets"
+import { HamburgerIcon, OpenseaIcon } from "../assets"
 import { links } from "utils/constants"
 import { useAppContext } from "context/app_context"
 
@@ -37,13 +37,21 @@ const Nav = ({ walletAddress, onConnectWalletHandler }) => {
         </button>
         <ul className="nav-icons">
           <li>
-            <a target="_blank" rel="noreferrer" href="https://www.twitter.com/">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://twitter.com/nippleverse"
+            >
               <FaTwitter id="twitter" />
             </a>
           </li>
           <li>
-            <a target="_blank" rel="noreferrer" href="https://www.medium.com/">
-              <MediumIcon id="medium" />
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://opensea.io/collection/nippleverse"
+            >
+              <OpenseaIcon id="opensea" />
             </a>
           </li>
           <li>
