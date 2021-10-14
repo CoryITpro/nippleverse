@@ -11,7 +11,6 @@ import {
   Loading,
 } from "../components"
 import { useAppContext } from "../context/app_context"
-import { nftPrice } from "utils/constants"
 import { mintNFT } from "helpers/interact"
 import { generateInitIds, getDiffArray } from "helpers/index"
 import {
@@ -21,6 +20,8 @@ import {
   getCurrentMaxSupply,
   getCurrentMaxMint,
 } from "helpers/contract"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 
 const HomePage = ({ walletAddress }) => {
   const { isLoading } = useAppContext()
@@ -31,7 +32,7 @@ const HomePage = ({ walletAddress }) => {
   const [maxSupply, setMaxSupply] = useState(0)
   const [maxCurrentSupply, setMaxCurrentSupply] = useState(0)
 
-  const [mintInputValue, setMintInputValue] = useState("0")
+  const [mintInputValue, setMintInputValue] = useState("1")
   const [mintTotal, setMintTotal] = useState(null)
   const [newMint, setNewMint] = useState([])
 
@@ -51,7 +52,6 @@ const HomePage = ({ walletAddress }) => {
     const initApp = async () => {
       let mintMax = await getCurrentMaxMint()
       setMaxMint(mintMax)
-      setMintInputValue(mintMax.toString())
 
       let supplyMax = await getMaxSupply()
       setMaxSupply(supplyMax)
@@ -92,16 +92,17 @@ const HomePage = ({ walletAddress }) => {
     if (!!walletAddress) {
       setMintLoading(true)
       const randomIds = await getRandomIds()
-      console.log(randomIds)
 
-      const { _, state } = await mintNFT(
+      const { success, status } = await mintNFT(
         walletAddress,
         setMintLoading,
         setNewMint,
         randomIds
       )
 
-      console.log(state)
+      // if (!success) {
+      //   alert(status)
+      // }
     }
   }
 

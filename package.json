@@ -18,6 +18,8 @@
         "react-scripts": "4.0.3",
         "react-scroll": "^1.8.4",
         "styled-components": "^5.3.1",
+        "sweetalert2": "^11.1.7",
+        "sweetalert2-react-content": "^4.1.1",
         "truffle-plugin-verify": "^0.5.15",
         "web-vitals": "^1.0.1"
     },

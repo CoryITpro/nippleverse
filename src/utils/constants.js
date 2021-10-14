@@ -21,8 +21,6 @@ export const links = [
   },
 ]
 
-export const nftPrice = 0.069
-
 export const maxMint = 4444
 
 export const loadingSeconds = 3

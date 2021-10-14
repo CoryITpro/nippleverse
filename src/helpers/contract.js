@@ -127,7 +127,6 @@ export const getPrice = async (count) => {
 
   try {
     let price = await contract.price(count)
-    console.log(ethers.BigNumber.from(price).div(1e15).toNumber())
 
     return ethers.BigNumber.from(price).div(1e15).toNumber()
   } catch (err) {

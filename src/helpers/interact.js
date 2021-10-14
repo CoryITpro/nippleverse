@@ -11,7 +11,6 @@ export const mintNFT = async (
 
   let ownerAddress = await getOwnerAddress()
   let price = await getPrice(randomIds.length)
-  console.log(price)
 
   contract.on("NippleverseCreated(address, uint256)", (to, newId) => {
     const address = ethers.utils.getAddress(to)
@@ -22,7 +21,10 @@ export const mintNFT = async (
 
   try {
     let txhash = await contract.mint(walletAddress, randomIds, {
-      value: walletAddress === ownerAddress ? 0 : ethers.BigNumber.from(price),
+      value:
+        walletAddress === ownerAddress
+          ? 0
+          : ethers.BigNumber.from(price).mul(1e15),
       from: walletAddress,
     })
 
@@ -42,6 +44,7 @@ export const mintNFT = async (
     }
   } catch (err) {
     setMintLoading(false)
+
     return {
       success: false,
       status: err.message,
