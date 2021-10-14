@@ -77,14 +77,15 @@ const Featured = () => {
           <div className="text-container">
             <p>
               At first hiding nipples seemed normal, something we've been taught
-              since a child. After time, their power started to prevail and the
-              people began questioning the reason for their censorship. A
-              revolution arose. The centralized power, that strives to be in
+              since we were children. After time, their power started to prevail
+              and the people began questioning the reason for their censorship.
+              A revolution arose. The centralized power, that strives to be in
               control of our fate, met this with force. They were not going to
               allow us to be free. An all-out war broke loose, Nipples were
               being hunted down and censored. But hope wasn’t lost yet...
             </p>
-            <a href="https://www.medium.com" target="_blank">
+            {/* <a href="https://www.medium.com" target="_blank"> */}
+            <a href="#featured">
               <img src={ButtonBg} alt="read more" />
               <span>Read More</span>
             </a>

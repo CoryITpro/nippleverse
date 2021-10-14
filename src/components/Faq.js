@@ -92,7 +92,7 @@ const Faq = () => {
             </p>
             <div>
               <p>
-                The process its quite simple. Install the crypto wallet called
+                The process is quite simple. Install the crypto wallet called
                 Metamask and create your digital portfolio. Metamask can be used
                 to store Ethereum and Assets such as NFT’s. As soon as you have
                 set up the Metamask crypto wallet, connect your wallet to our
@@ -127,7 +127,7 @@ const Faq = () => {
                 >
                   Discord Channel
                 </a>
-                . From there, you will have all the essentials to navigate the
+                From there, you will have all the essentials to navigate the
                 Nippleverse.
               </p>
             </div>
