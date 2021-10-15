@@ -446,6 +446,7 @@ const Wrapper = styled.article`
       & > span {
         font-size: 1rem;
         color: #c9b7df;
+        font-family: "Josefin Sans", sans-serif;
       }
     }
   }
