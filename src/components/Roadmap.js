@@ -131,7 +131,7 @@ const Roadmap = () => {
 
             <div className="glass-background item">
               <p className="title">
-                Phase 3 - The age of recognition (50% Sold)
+                Phase 3 - The age of recognition. (50% Sold)
               </p>
               <ul className="text">
                 <li>
@@ -157,7 +157,7 @@ const Roadmap = () => {
             </div>
 
             <div className="glass-background item">
-              <p className="title">Phase 4 - Vincent Van Nipple (75% Sold)</p>
+              <p className="title">Phase 4 - Vincent Van Nipple. (75% Sold)</p>
               <ul className="text">
                 <li>
                   Use Nipples in creative ways and post them on Twitter with the
@@ -182,7 +182,7 @@ const Roadmap = () => {
 
             <div className="glass-background item">
               <p className="title">
-                Phase 5 - The ETHernal Nippleverse (100% Sold)
+                Phase 5 - The ETHernal Nippleverse. (100% Sold)
               </p>
               <ul className="text">
                 <li>0.05 ETH to 60 random Nipple Holders.</li>
@@ -433,8 +433,8 @@ const Wrapper = styled.article`
       .text {
         color: #c9b7df;
         font-size: 1rem;
-        font-family: "Comfortaa", cursive;
         font-weight: 600;
+        font-family: "Josefin Sans", sans-serif;
 
         li {
           &::before {
