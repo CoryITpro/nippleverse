@@ -28,10 +28,28 @@ const Roadmap = () => {
       <div id="roadmap" className="container">
         <h1>RoadMap</h1>
         <p className="roadmap-text">
-          10% of all funds collected will be contributed to a charity (With
-          Onchain Proof), so you will get a cool nipple that with the power of
-          the community and NFN(Non-Fungiblenomics)retains its value and you
-          will also aid to a good cause.
+          Below is a blueprint of our ambitions and objectives regarding the
+          Nippleverse.
+          <br />
+          We aim to be the biggest online, on-chain, Nipple community there is!
+          <ul>
+            <li>
+              10% of the total amount of funds collected will be donated to a
+              breast cancer charity with On-Chain proof. What does this mean?
+              This means that in light of joining a fun and vibrant Nipple
+              community and owning your own on-chain Nipple, you will also be
+              supporting vital research for a deeply meaningful cause.
+            </li>
+            <li>
+              5% of the total amount of funds collected will be used to
+              strategically buy back and burn NFT's from weak hands in order to
+              support the floor price.
+            </li>
+            <li>
+              In addition to that, 50% of Royalty fees will be used to buy back
+              and burn NFT's on a weekly basis.
+            </li>
+          </ul>
         </p>
         <div className="roadmap-steps">
           <div className="roadmap-steps-background">
@@ -48,24 +66,28 @@ const Roadmap = () => {
 
             <div className="glass-background item">
               <p className="title">
-                0% - The journey begins, welcome to the Nippleverse
+                Phase 1 - The journey begins, welcome to the Nippleverse! (0%
+                Sold)
               </p>
               <ul className="text">
                 <li>
-                  The minting process begins with 0.08008 Eth(boobs lol) as a
-                  minting price
+                  A private discord channel gets unlocked for all Nipple
+                  Holders.
+                </li>
+                <li>Giveaway of 1/1 Halloween Nipple.</li>
+                <li>
+                  The minting process begins for whitelisted users. 444 Nipples
+                  at 0.05 ETH will be available.
+                </li>
+                <li>One airdropped Nipple to the first 69 buyers.</li>
+                <li>
+                  Owners receive a special seat for what will appear next in the
+                  multiverse.
                 </li>
                 <li>
-                  A private discord channel gets unlocked(Only for Nipple
-                  owners)
+                  Community rewards - Eth and NFT rewards for active Discord
+                  members.
                 </li>
-                <li>Release of 1/1 Halloween Nipple</li>
-                <li>One airdropped nipple to the first 69 buyers</li>
-                <li>
-                  Owners get a special seat in what will appear next in the
-                  multiverse
-                </li>
-                <li>1ETH giveaway to the first 100 buyers</li>
               </ul>
             </div>
           </div>
@@ -78,16 +100,23 @@ const Roadmap = () => {
             </div>
 
             <div className="glass-background item">
-              <p className="title">25% - Expanding the Nipplevers</p>
+              <p className="title">
+                Phase 2 - Expanding the Nippleverse. (25% Sold)
+              </p>
               <ul className="text">
-                <li>Rewards for active Discord members(Invite Contest)</li>
-                <li>10% sales charity donation equal to aprox 32,000$</li>
-                <li>1ETH + 1 Nipple community airdrop to random holders</li>
                 <li>
-                  Because rare traits aren’t the only beautiful thing, there
-                  will be a weekly contest where the community can vote the best
-                  looking nipple, winners will be displayed in a special gallery
-                  named “Beauty lays in the nipple of the beholder”
+                  Public sale begins. 4000 Nipples at 0.069 ETH will be
+                  available.
+                </li>
+                <li>
+                  Community rewards - Eth and NFT rewards for active Discord
+                  members.
+                </li>
+                <li>0.05 ETH to 15 random Nipple Holders.</li>
+                <li>2 Nipples giveaway to 2 random Nipple Holders.</li>
+                <li>
+                  We begin voting for the best-looking nipple on a weekly basis
+                  where the winner will receive 0.02 Eth.
                 </li>
               </ul>
             </div>
@@ -101,18 +130,21 @@ const Roadmap = () => {
             </div>
 
             <div className="glass-background item">
-              <p className="title">50% - 4th Wall break</p>
+              <p className="title">
+                Phase 3 - The age of recognition (50% Sold)
+              </p>
               <ul className="text">
-                <li>Meme contest, the winner will receive 1ETH and 1 nipple</li>
                 <li>
-                  Retweet giveaway: A random person that retweets and follows
-                  gets a nipple
+                  The top 15 most active members in our Discord will receive
+                  0.05 Eth each.
                 </li>
-                <li>3ETH community airdrop to random holders</li>
                 <li>
-                  Nipples worth 32500$ will be bought and burned to lift the
-                  floor price
+                  At this point, we will conduct another Airdrop Raffle. The
+                  prize will be an NFT from another cool project. It's a secret
+                  for now!
                 </li>
+                <li>0.04 ETH to 25 random Nipple Holders.</li>
+                <li>5 Nipples giveaway to 5 random Nipple Holders.</li>
               </ul>
             </div>
           </div>
@@ -125,17 +157,17 @@ const Roadmap = () => {
             </div>
 
             <div className="glass-background item">
-              <p className="title">75% - Vincent van Nipple</p>
+              <p className="title">Phase 4 - Vincent Van Nipple (75% Sold)</p>
               <ul className="text">
                 <li>
-                  Nipple Art contest: Use nipples in the most creative ways and
-                  post them on twitter with the #nippleverse hashtag, the winner
-                  gets 1ETH
+                  Use Nipples in creative ways and post them on Twitter with the
+                  #Nippleverse hashtag. The winner gets a mystery prize!
                 </li>
-                <li>5ETH community airdrop to random holders</li>
+                <li>0.04 Eth to 40 random Nipple Holders.</li>
+                <li>8 Nipples giveaway to 8 random Nipple Holders.</li>
                 <li>
-                  Nipples worth 50,000$ will be bought and burned to lift the
-                  floor price
+                  Community rewards - Eth and NFT rewards for active Discord
+                  members.
                 </li>
               </ul>
             </div>
@@ -149,27 +181,40 @@ const Roadmap = () => {
             </div>
 
             <div className="glass-background item">
-              <p className="title">100% - The ETHernal nippleverse</p>
+              <p className="title">
+                Phase 5 - The ETHernal Nippleverse (100% Sold)
+              </p>
               <ul className="text">
+                <li>0.05 ETH to 60 random Nipple Holders.</li>
+                <li>10 Nipples giveaway to 10 random Nipple Holders.</li>
                 <li>
-                  10% of royalty fees will get airdropped to holders as ETH
-                  monthly
-                </li>
-                <li>7ETH community airdrop to random holders</li>
-                <li>
-                  Nipples worth 65000$ will be bought and burned to lift the
-                  floor price
+                  Community rewards - Eth and NFT rewards for active Discord
+                  members.
                 </li>
                 <li>
-                  Special antimatter formula that can be used to enhance your
-                  nipples in the future
+                  Nipple Owners with special traits will be able to claim
+                  tangible Nippleverse merchandise.
                 </li>
                 <li>
-                  50% of royalty fees will be used to buyback and burn nfts
+                  We want to keep the party alive… this time in a Metaverse of
+                  your choice!
                 </li>
               </ul>
+              <span>
+                What does this mean? At 100% sales, we will let the community
+                decide where they would like to see this party take place… and
+                we will work to make it happen.
+              </span>
             </div>
           </div>
+        </div>
+        <div className="roadmap-explanation">
+          <p>
+            This roadmap lists the events we are certain will take place after
+            each phase is complete. However, we have a lot more ideas and
+            partnerships in the works that will come to fruition later on in our
+            journey.
+          </p>
         </div>
       </div>
     </Wrapper>
@@ -229,6 +274,15 @@ const Wrapper = styled.article`
     max-width: 940px;
     margin: 0 auto;
     margin-bottom: 5rem;
+
+    & > ul {
+      margin-top: 3rem;
+      text-align: start;
+
+      & > li::before {
+        content: "- ";
+      }
+    }
   }
 
   .roadmap-steps {
@@ -382,6 +436,11 @@ const Wrapper = styled.article`
           }
         }
       }
+
+      & > span {
+        font-size: 1rem;
+        color: #c9b7df;
+      }
     }
   }
 
@@ -447,6 +506,10 @@ const Wrapper = styled.article`
         flex: 1;
         margin-left: 1rem;
       }
+    }
+
+    .roadmap-explanation {
+      margin-top: 36px;
     }
   }
 `
