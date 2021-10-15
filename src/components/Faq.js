@@ -102,7 +102,8 @@ const Faq = () => {
           </li>
           <li>
             <p className="title" onClick={(e) => handleOpenItem(e.target)}>
-              How can I be sure you donated to a charity? <GoChevronRight />
+              How can i be sure that the donation to the charity is fulfilled?
+              <GoChevronRight />
             </p>
             <div>
               <p>

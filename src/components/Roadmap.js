@@ -211,9 +211,9 @@ const Roadmap = () => {
         <div className="roadmap-explanation">
           <p>
             This roadmap lists the events we are certain will take place after
-            each phase is complete. However, we have a lot more ideas and
-            partnerships in the works that will come to fruition later on in our
-            journey.
+            each phase is complete. <br />
+            However, we have a lot more ideas and partnerships in the works that
+            will come to fruition later on in our journey.
           </p>
         </div>
       </div>
@@ -226,6 +226,10 @@ const Wrapper = styled.article`
   padding: 6rem 0;
   text-align: center;
   /* overflow: hidden; */
+
+  .roadmap-explanation {
+    font-weight: 600;
+  }
 
   .roadmap-background {
     user-select: none;
@@ -429,6 +433,8 @@ const Wrapper = styled.article`
       .text {
         color: #c9b7df;
         font-size: 1rem;
+        font-family: "Comfortaa", cursive;
+        font-weight: 600;
 
         li {
           &::before {
