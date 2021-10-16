@@ -94,7 +94,7 @@ const Faq = () => {
               <p>
                 The process is quite simple. Install the crypto wallet called
                 Metamask and create your digital portfolio. Metamask can be used
-                to store Ethereum and Assets such as NFT’s. As soon as you have
+                to store Ethereum and assets such as NFTs. As soon as you have
                 set up the Metamask crypto wallet, connect your wallet to our
                 website and complete the purchase.
               </p>
