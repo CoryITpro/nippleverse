@@ -447,6 +447,7 @@ const Wrapper = styled.article`
         font-size: 1rem;
         color: #c9b7df;
         font-family: "Josefin Sans", sans-serif;
+        font-weight: 600;
       }
     }
   }
