@@ -70,7 +70,7 @@ import teamMember5 from "./team-member-5.png"
 import teamMember6 from "./team-member-6.png"
 import footerBg from "./footer-bg-min.png"
 import footerBgSmall from "./footer-bg-small-min.png"
-import NFTCalendar from "./partners/nft-calender.jpg"
+import NFTCalendar from "./partners/nft-calender.png"
 
 export {
   mintBgSmall,
