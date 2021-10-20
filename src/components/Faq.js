@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { GoChevronRight } from "react-icons/go"
-import { nftPrice } from "../utils/constants"
 import { faqBg, topLeftFeaturedBg, squareShapeRight } from "../assets"
 
 const Faq = () => {

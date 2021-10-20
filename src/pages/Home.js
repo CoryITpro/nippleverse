@@ -6,6 +6,7 @@ import {
   Featured,
   Roadmap,
   Team,
+  AsSeenOn,
   Faq,
   Footer,
   Loading,
@@ -121,6 +122,7 @@ const HomePage = ({ walletAddress }) => {
       <Featured />
       <Roadmap />
       <Team />
+      <AsSeenOn />
       <Faq />
       <Footer />
     </MainWrapper>
