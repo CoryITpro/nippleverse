@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { NFTCalendar } from "assets"
+import { NFTCalendar, Hackernoon, NFTPlazas } from "assets"
 
 const AsSeenOn = () => (
   <Wrapper>
@@ -13,6 +13,20 @@ const AsSeenOn = () => (
           rel="noreferrer"
         >
           <img src={NFTCalendar} alt="Sponsor 1" />
+        </a>
+        <a
+          href="https://hackernoon.com/i-spy-pixelated-nipples-on-the-blockchain-freethenipple"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={Hackernoon} alt="Sponsor 2" />
+        </a>
+        <a
+          href="https://nftplazas.com/nippleverse-nft-collectibles/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={NFTPlazas} alt="Sponsor 3" />
         </a>
       </div>
     </div>
@@ -28,6 +42,7 @@ const Wrapper = styled.article`
     display: grid;
     grid-template: auto / 1fr 1fr 1fr 1fr;
     column-gap: 24px;
+    align-items: center;
     margin-bottom: 4.5rem;
 
     @media (max-width: 768px) {

@@ -71,6 +71,8 @@ import teamMember6 from "./team-member-6.png"
 import footerBg from "./footer-bg-min.png"
 import footerBgSmall from "./footer-bg-small-min.png"
 import NFTCalendar from "./partners/nft-calender.png"
+import Hackernoon from "./partners/hackernoon.png"
+import NFTPlazas from "./partners/nft-plazas.png"
 
 export {
   mintBgSmall,
@@ -146,4 +148,6 @@ export {
   roadmapBg,
   roadmapBgBottom,
   NFTCalendar,
+  Hackernoon,
+  NFTPlazas,
 }
