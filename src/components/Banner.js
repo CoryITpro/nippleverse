@@ -35,9 +35,38 @@ const Banner = ({
               alt="Mint Section Background for Small Devices"
             />
           </div>
-
           <div className="mint-banner-text">
-            {Object.keys(timeLeft).length === 0 ? (
+            <div className="mint-banner-clock flex">
+              <div className="mint-banner-timer flex flex-column">
+                <div className="flex">
+                  <span>?</span>
+                  <span>?</span>
+                </div>
+                <span>Days</span>
+              </div>
+              <div className="mint-banner-timer flex flex-column">
+                <div className="flex">
+                  <span>?</span>
+                  <span>?</span>
+                </div>
+                <span>Hours</span>
+              </div>
+              <div className="mint-banner-timer flex flex-column">
+                <div className="flex">
+                  <span>?</span>
+                  <span>?</span>
+                </div>
+                <span>Minutes</span>
+              </div>
+              <div className="mint-banner-timer flex flex-column">
+                <div className="flex">
+                  <span>?</span>
+                  <span>?</span>
+                </div>
+                <span>Seconds</span>
+              </div>
+            </div>
+            {/* {Object.keys(timeLeft).length === 0 ? (
               <>
                 <h2>Mint</h2>
                 <p>{`Enter the amount of nipples you would like to buy ( ${maxMint} max ):`}</p>
@@ -88,7 +117,7 @@ const Banner = ({
                   <span>Seconds</span>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
           <BannerShape className="banner-shape" />
         </div>
